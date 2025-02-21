@@ -1,101 +1,92 @@
-import Image from "next/image";
+"use client";
+
+import Link from "next/link";
+import { FaNodeJs, FaDocker } from "react-icons/fa";
+import { SiNextdotjs, SiExpress, SiPrisma, SiPostgresql } from "react-icons/si";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className="flex h-screen bg-gradient-to-r from-gray-800 via-gray-950 to-gray-800 text-white">
+      {/* Left Section - Header */}
+      <header className="relative flex flex-col justify-center items-center w-5/6 h-full py-10 px-6 animate-fade-in border-r border-gray-600">
+        <h1 className="absolute flex flex-col top-1/4 text-5xl text-white font-semibold mb-6 animate-fade-in-up text-center">
+          Docker & PostgreSQL <span className="text-2xl mt-2">(mini)</span>
+        </h1>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <Link
+          href="/userManagement"
+          className="text-xl bg-gray-200 text-gray-900 rounded px-8 py-3 shadow-lg hover:bg-gray-300 hover:scale-105 transform transition-all duration-200 animate-fade-in-up-1hs"
+        >
+          User Management
+        </Link>
+      </header>
+
+      {/* Right Section - Stack */}
+      <section className="w-1/2 h-full py-10 px-6 flex flex-col justify-center overflow-auto scrollbar-hide">
+        <h2 className="underline text-2xl font-bold text-center mb-8 animate-fade-in-down">
+          Stacks in this project
+        </h2>
+
+        <div className="space-y-8">
+          {/* Frontend Stack */}
+          <div>
+            <h3 className="text-xl font-semibold mb-4 text-center animate-fade-in">Frontend</h3>
+            <div className="flex flex-col gap-4 items-center animate-fade-in-left-1hs">
+              <div className="flex gap-4 items-center hover:scale-110 transition-transform">
+                <SiNextdotjs className="text-3xl hover:text-gray-300 transition" />
+                <span className="mt-2">Next.js</span>
+              </div>
+            </div>
+            <hr className="my-4 border-gray-500" />
+          </div>
+
+          {/* Backend Stack */}
+          <div>
+            <h3 className="text-xl font-semibold mb-4 text-center animate-fade-in">Backend</h3>
+            <div className="flex flex-col gap-4 items-center animate-fade-in-left-2s">
+              <div className="flex gap-4 items-center hover:scale-110 transition-transform">
+                <FaNodeJs className="text-3xl text-green-500 hover:text-green-400 transition" />
+                <span className="mt-2">Node.js</span>
+              </div>
+
+              <div className="flex gap-4 items-center hover:scale-110 transition-transform">
+                <SiExpress className="text-3xl text-gray-400 hover:text-gray-300 transition" />
+                <span className="mt-2">Express</span>
+              </div>
+
+              <div className="flex gap-4 items-center hover:scale-110 transition-transform">
+                <SiPrisma className="text-3xl text-blue-500 hover:text-blue-400 transition" />
+                <span className="mt-2">Prisma</span>
+              </div>
+            </div>
+            <hr className="my-4 border-gray-500" />
+          </div>
+
+          {/* Database Stack */}
+          <div>
+            <h3 className="text-xl font-semibold mb-4 text-center animate-fade-in">Database</h3>
+            <div className="flex flex-col gap-4 items-center animate-fade-in-left-2hs">
+              <div className="flex gap-4 items-center hover:scale-110 transition-transform">
+                <SiPostgresql className="text-3xl text-blue-600 hover:text-blue-400 transition" />
+                <span className="mt-2">PostgreSQL</span>
+              </div>
+            </div>
+            <hr className="my-4 border-gray-500" />
+          </div>
+
+          {/* Docker Container */}
+          <div>
+            <h3 className="text-xl font-semibold mb-4 text-center animate-fade-in">Docker Container</h3>
+            <div className="flex flex-col gap-4 items-center animate-fade-in-left-3s">
+              <div className="flex gap-4 items-center hover:scale-110 transition-transform">
+                <FaDocker className="text-3xl text-blue-500 hover:text-blue-400 transition" />
+                <span className="mt-2">Docker</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+    </main>
   );
 }

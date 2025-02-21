@@ -1,0 +1,215 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar for Webkit browsers (Chrome, Safari, Edge) */
+/* Firefox Scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(102, 102, 102) #000000;
+}
+/* Custom scrollbar for Webkit browsers (Chrome, Safari, Edge) */
+
+/* Hide scrollbar but allow scroll */
+.scrollbar-hide::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Disable body scroll */
+html, body {
+  overflow: hidden;
+  height: 100%;
+}
+
+
+/* *========= Custom CSS fo Animation ========== */
+/* fade transition when page loaded*/
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in-down {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in-left-right {
+    from {
+        opacity: 0;
+        transform: translatex(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fade-in-right-left {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.7s ease-in-out;
+}
+
+.animate-fade-in-up {
+    animation: fade-in-up 0.7s ease-in-out;
+}
+
+.animate-fade-in-up-1hs {
+  animation: fade-in-up 1.5s ease-in-out;
+}
+
+.animate-fade-in-down {
+    animation: fade-in-down 0.7s ease-in-out;
+}
+
+.animate-fade-in-left {
+    animation: fade-in-left-right 0.7s ease-in-out;
+}
+/* Animation Durations */
+.animate-fade-in-left-1s {
+  animation: fade-in-left-right 1s ease-in-out;
+}
+
+.animate-fade-in-left-1hs {
+  animation: fade-in-left-right 1.5s ease-in-out;
+}
+
+.animate-fade-in-left-2s {
+  animation: fade-in-left-right 2s ease-in-out;
+}
+
+.animate-fade-in-left-2hs {
+  animation: fade-in-left-right 2.5s ease-in-out;
+}
+
+.animate-fade-in-left-3s {
+  animation: fade-in-left-right 3s ease-in-out;
+}
+
+/* Animation Durations */
+
+.animate-fade-in-right {
+    animation: fade-in-right-left 0.7s ease-in-out;
+}
+
+.animate-floating {
+    animation: floating 3s ease-in-out infinite;
+}
+
+/*========= fade transition when page loaded ============*/
+@keyframes appearUp {
+    from {
+        opacity: 0;
+        scale: 0;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+.animation-appearUp {
+    animation: appearUp linear;
+    animation-timeline: view();
+    /*animate when element on screen*/
+    animation-range: entry 0% cover 40%;
+    /*entry 0% >>animate start when enter screen*/
+    /*cover 30% >> animate finish when 30% of screen*/
+}
+
+/* ========= Custom CSS for Animation ========== */
+
+/* Appear from Left */
+@keyframes appearLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animation-appearLeft {
+    animation: appearLeft linear;
+    animation-timeline: view(); /* Animate when element is on screen */
+    animation-range: entry 0% cover 50%; /* Starts when entering the screen, finishes at 35% */
+}
+
+/* Appear from Right */
+@keyframes appearRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animation-appearRight {
+    animation: appearRight linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 50%;
+}
+
+/*========= fade transition when page loaded ============*/
+/* *========= Custom CSS fo Animation ========== */
+
