@@ -14,8 +14,19 @@ datasource db {
 }
 
 //User with id as int autoincrement, name as string and email as string
+// Existing User model
 model User {
   id    Int     @id @default(autoincrement())
   name  String
-  email String 
+  email String
+  posts Post[]  // 🔗 One-to-many relationship (User → Posts)
+}
+
+// New Post model
+model Post {
+  id        Int    @id @default(autoincrement())
+  title     String
+  content   String
+  authorId  Int
+  author    User   @relation(fields: [authorId], references: [id]) // Foreign key
 }
