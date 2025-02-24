@@ -23,7 +23,7 @@ export default function Home() {
         {/* Left Section - Header */}
         <header className="relative flex flex-col justify-center items-center w-full h-full py-10 px-6 animate-fade-in border-r border-gray-600">
           <h1 className="absolute flex flex-col top-1/4 text-4xl text-white font-semibold mb-6 animate-fade-in-up text-center">
-            Docker & PostgreSQL <span className="text-2xl mt-2">(mini)</span>
+            Data Management App<span className="text-xl mt-2">(PostgresSQL Container)</span>
           </h1>
 
           <Link

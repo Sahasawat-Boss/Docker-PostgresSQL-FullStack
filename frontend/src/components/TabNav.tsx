@@ -7,13 +7,13 @@ export default function TabNav() {
     const pathname = usePathname();
 
     return (
-        <div className="py-8 animate-fade-in-right">
+        <div className="pt-8 text-lg font-semibold">
             <div className="flex border-b">
                 <button
                     onClick={() => router.push('/')}
-                    className={`mr-4 pb-2 ${pathname === '/'
-                        ? "border-b-2 border-blue-500 text-blue-500"
-                        : "text-gray-500"
+                    className={`mr-4 pb-2 transition-colors duration-200 ${pathname === '/'
+                            ? "border-b-2 border-blue-500 text-blue-500"
+                            : "text-gray-500 hover:text-blue-400"
                         }`}
                 >
                     Home
@@ -21,9 +21,9 @@ export default function TabNav() {
 
                 <button
                     onClick={() => router.push('/userManagement')}
-                    className={`mr-4 pb-2 ${pathname === '/userManagement'
-                        ? "border-b-2 border-blue-500 text-blue-500"
-                        : "text-gray-500"
+                    className={`mr-4 pb-2 transition-colors duration-200 ${pathname === '/userManagement'
+                            ? "border-b-2 border-blue-500 text-blue-500"
+                            : "text-gray-500 hover:text-blue-400"
                         }`}
                 >
                     User Management
@@ -31,9 +31,9 @@ export default function TabNav() {
 
                 <button
                     onClick={() => router.push('/dbTest')}
-                    className={`mr-4 pb-2 ${pathname === '/dbTest'
-                        ? "border-b-2 border-blue-500 text-blue-500"
-                        : "text-gray-500"
+                    className={`mr-4 pb-2 transition-colors duration-200 ${pathname === '/dbTest'
+                            ? "border-b-2 border-blue-500 text-blue-500"
+                            : "text-gray-500 hover:text-blue-400"
                         }`}
                 >
                     Test Data DB

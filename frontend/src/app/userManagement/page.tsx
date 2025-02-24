@@ -82,7 +82,8 @@ export default function Home() {
       <div>
         <TabNav />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto ">
+      <h1 className='text-white text-2xl pl-4 my-6 animate-fade-in-down'>User Management</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-4 ">
         {/* Left Section: Add & Update User */}
         <div className="space-y-4 animate-fade-in-left">
           {/* Create user */}

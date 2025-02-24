@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import TabNav from '@/components/TabNav';
+import Image from 'next/image';
 
 interface Post {
     id: number;
@@ -38,8 +39,17 @@ export default function DBtest() {
             <div>
                 <TabNav />
             </div>
-            <div className="overflow-auto h-[80vh] bg-gray-800 mx-6 py-4 px-8 text-white animate-fade-in-up">
-                <h1 className="text-2xl font-bold mb-4">Relational Data of User and Post Table</h1>
+            <div className='flex justify-center'>
+                <Image
+                    src="https://api.pgxn.org/src/postgresql_anonymizer/postgresql_anonymizer-0.2.1/postgresql_anonymizer.logo.static.gif"
+                    alt="postgreSQL Logo"
+                    width={60}
+                    height={60}
+                />
+            </div>
+            <div className="overflow-auto h-[80vh] bg-gray-800 mx-6 py-4 px-8 text-white animate-fade-in">
+                <h1 className="text-2xl font-bold mb-4 animate-fade-in-down">Relational Data of User and Post Table</h1>
+
                 {userPosts.length === 0 ? (
                     <p>No data available in Database</p>
                 ) : (
