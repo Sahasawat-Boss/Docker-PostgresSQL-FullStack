@@ -1,4 +1,3 @@
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -8,20 +7,58 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-//User with id as int autoincrement, name as string and email as string
-// Existing User model
+// Existing User model with added relations to Profile and Comment
 model User {
-  id    Int     @id @default(autoincrement())
-  name  String
-  email String
-  posts Post[]  // 🔗 One-to-many relationship (User → Posts)
+  id       Int       @id @default(autoincrement())
+  name     String
+  email    String
+  posts    Post[]
+  profile  Profile? // One-to-one: A user may have one profile
+  comments Comment[] // One-to-many: A user can write many comments
 }
 
-// New Post model
+// Extended Post model with relations to Comment, Tag, and Category
 model Post {
-  id        Int    @id @default(autoincrement())
-  title     String
+  id         Int       @id @default(autoincrement())
+  title      String
+  content    String
+  authorId   Int
+  author     User      @relation(fields: [authorId], references: [id])
+  comments   Comment[] // One-to-many: A post can have many comments
+  tags       Tag[] // Many-to-many: Posts can have many tags (implicit join table)
+  categoryId Int?
+  category   Category? @relation(fields: [categoryId], references: [id])
+}
+
+// One-to-One Profile model for additional user info
+model Profile {
+  id     Int     @id @default(autoincrement())
+  bio    String?
+  userId Int     @unique
+  user   User    @relation(fields: [userId], references: [id])
+}
+
+// Comment model to associate users with posts
+model Comment {
+  id        Int      @id @default(autoincrement())
   content   String
+  postId    Int
   authorId  Int
-  author    User   @relation(fields: [authorId], references: [id]) // Foreign key
+  createdAt DateTime @default(now())
+  post      Post     @relation(fields: [postId], references: [id])
+  author    User     @relation(fields: [authorId], references: [id])
+}
+
+// Tag model to demonstrate a many-to-many relationship with Post
+model Tag {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  posts Post[]
+}
+
+// Category model to group posts (one-to-many relationship)
+model Category {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  posts Post[]
 }

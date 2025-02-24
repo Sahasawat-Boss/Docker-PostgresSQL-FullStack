@@ -120,10 +120,10 @@ app.get('/userPosts', async (req, res) => {
 });
 
 
-console.log("Server is running on http://localhost:4000");
+console.log("Server is running on http://localhost:4001");
 
 //**---------------------------start server
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4001;
 app.listen(PORT, () => console.log(`Server Port ${PORT}`));
 
 //http://localhost:4000
